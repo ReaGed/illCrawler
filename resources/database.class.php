@@ -130,7 +130,7 @@ Class database
 	private function illum_domain_name($number = -1)
 	{
 		// Проверяем входящие данные на валидность
-		if (!Guard::isint($number) || !$this->mysql || $number < 0) return NULL;
+		if (!is_int($number) || !$this->mysql || $number < 0) return NULL;
 		// Выполняем запрос к базе и получаем массив
 		$arr = $this->fetch_assoc("SELECT `name` FROM `domains` WHERE `id`='{$number}'");
 		// Производим проверку элементов
@@ -223,7 +223,7 @@ Class database
 	{
 		print_r($array);
 		// Проверяем входящие данные и приобразовываем тип данных id
-		if (!is_array($array) || !Guard::isint($id) || $id < 0) return;
+		if (!is_array($array) || !is_int($id) || $id < 0) return;
 		// Содержимое тегов сайта и текущая дата
 		$tegsline = NULL; $date = date("d.m.Y");
 		// Проверяем существование домена по id
@@ -258,7 +258,7 @@ Class database
 		if (!is_array($array) || !isset($array['id']) || !isset($array['page']))
 			return -1;
 		// Фильтрация и проверка содержимого массива
-		if (!Guard::isint($array['id']) || empty($page = Guard::escape($array['page'])))
+		if (!is_int($array['id']) || empty($page = Guard::escape($array['page'])))
 			return -1;
 		// Получаем массив данных запроса к бд
 		$data = $this->fetch_assoc(
