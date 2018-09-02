@@ -91,7 +91,7 @@ Class Guard
 	public static function clearpage($page = "", $domain = "")
 	{
 		// Проверяем параметры
-		if (empty($page) || ($domain = Guard::oniondomain($domain)) == NULL) return "/";
+		if (empty($page) || ($domain = self::oniondomain($domain)) == NULL) return "/";
 		// Очищаем путь от доменя и слеша
 		$npage = str_replace($domain, "", str_replace("./", "", $page));
 		// Очищаем путь от названия протокола

@@ -221,7 +221,7 @@ Class database
 	*/
 	private function illum_savepage($array = array(), $id = -1)
 	{
-		print_r($array);
+		#print_r($array);
 		// Проверяем входящие данные и приобразовываем тип данных id
 		if (!is_array($array) || !is_int($id) || $id < 0) return;
 		// Содержимое тегов сайта и текущая дата
